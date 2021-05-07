@@ -68,8 +68,8 @@ const ChangeFormateDate=(oldDate)=>
 
 const getAllData = async (req,res,next) =>{
     try {
-        // const users = await firestore.collection('Prototype1');
-        // const data = await users.get();
+        const users = await firestore.collection('Prototype1');
+        const data = await users.get();
         // if(data.empty) {
         //     res.status(404).send('No collection record found');
         // } else {
@@ -77,7 +77,7 @@ const getAllData = async (req,res,next) =>{
         //             getSlotsForDate(ChangeFormateDate(doc.data().date),doc.id,doc.data().pin,doc.data().age,doc.data().email);
         //         });
         // }
-        console.log('Malay')
+        console.log(data)
     } catch (error) {
         res.status(400).send(error.message)
     }
