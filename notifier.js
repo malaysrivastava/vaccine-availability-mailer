@@ -32,7 +32,8 @@ function getSlotsForDate(DATE) {
         url: 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=' + PINCODE + '&date=' + DATE,
         headers: {
             'accept': 'application/json',
-            'Accept-Language': 'hi_IN'
+            'Accept-Language': 'en_US',
+            'Connection':true
         }
     };
 

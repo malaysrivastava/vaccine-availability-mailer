@@ -29,7 +29,8 @@ async function main(){
 
 app.listen(config.port, ()=>{
     console.log("App started on "+config.port)
-    main()
-    .then(() => {console.log('Vaccine availability checker started.');});
+      main()
+     .then(() => {console.log('Vaccine availability checker started.');});
+    //getAllData();
 
 })

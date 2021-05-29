@@ -68,16 +68,15 @@ const ChangeFormateDate=(oldDate)=>
 
 const getAllData = async (req,res,next) =>{
     try {
-        const users = await firestore.collection('Prototype1');
+        const users = await firestore.collection('corona');
         const data = await users.get();
-        // if(data.empty) {
-        //     res.status(404).send('No collection record found');
-        // } else {
-        //         data.forEach(doc=>{
-        //             getSlotsForDate(ChangeFormateDate(doc.data().date),doc.id,doc.data().pin,doc.data().age,doc.data().email);
-        //         });
-        // }
-        console.log(data)
+        if(data.empty) {
+            console.log('No collection record found');
+        } else {
+                data.forEach(doc=>{
+                    getSlotsForDate(ChangeFormateDate(doc.data().date),doc.id,doc.data().pin,doc.data().age,doc.data().email);
+                });
+        }
     } catch (error) {
         res.status(400).send(error.message)
     }
@@ -87,7 +86,7 @@ const getAllData = async (req,res,next) =>{
 const deleteData = async (Id)=>{
     try {
         const id = Id;
-        await firestore.collection('Prototype1').doc(id).delete();
+        await firestore.collection('corona').doc(id).delete();
         console.log('Record deleted successfully')
     } catch (error) {
         console.log(error.message)
